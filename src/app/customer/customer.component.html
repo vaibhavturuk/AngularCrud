@@ -1,0 +1,46 @@
+
+
+<h1>Student Registration</h1>
+<hr>
+
+<form [formGroup]="myform" (ngSubmit)="onAddStudent(myform)" method="POST"> 
+    <div class="container">
+
+    <div class="form-group">
+        <label for="childfirstName">FirstName</label>
+        <input type="text" id="childfirstName" name="childfirstName" formControlName="childfirstName" class="form-control" />
+        <span *ngIf="childfirstName.errors && childfirstName.touched  && childfirstName.errors.required && childfirstName.invalid"  class="validation">First name please</span>
+        
+    </div>
+    <div class="form-group">
+        <label for="childlastName">LastName</label>
+        <input type="text" id="childlastName" name="childlastName" formControlName="childlastName" class="form-control"/>
+        <span *ngIf="childlastName.errors && childlastName.touched  && childlastName.errors.required" class="validation">Last name please</span>
+    </div>
+    <div class="form-group">
+        <label for="childgender">  Gender</label>
+        <input type="text" id="childgender" name="childgender" formControlName="childgender" class="form-control"/>
+        <span *ngIf="childgender.errors && childgender.touched  && childgender.errors.required" class="validation">Gender please</span>
+    </div>
+     <div class="form-group">
+        <label for="address">  Address  </label>
+        <input type="text" id="address" name="address" formControlName="address" class="form-control"/>
+        <span *ngIf="address.errors && address.touched && address.errors.required" class="validation">Address please</span>
+    </div>
+    <div class="form-group">
+        <label for="city" class="sp">City</label>
+        <input type="text" id="city" name="city" formControlName="city"class="form-control"/>
+        <span *ngIf="city.errors && city.touched && city.errors.required" class="validation">City please</span>
+    </div>
+    <div class="form-group">
+        <label for="postalcode">PostalCode</label>
+        <input type="text" id="postalcode" name="postalcode" formControlName="postalcode" class="form-control"/>
+        <span *ngIf="postalcode.errors && postalcode.touched  && postalcode.errors.required" class="validation">Postal code please</span>
+    </div>
+    <hr>
+    <button type="submit" [disabled]="!myform.valid" class="btn btn-success">Save</button>
+    <button [routerLink]="['/template-form']" class="btn btn-primary" type="next">next</button>
+
+    </div>
+</form>
+
